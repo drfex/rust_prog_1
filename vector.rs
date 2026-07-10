@@ -25,4 +25,26 @@ fn main(){
     }
 }
 _____________________________________________________________________
+fn main(){
+    let vec : Vec<Vec<Vec<Vec<String>>>> = vec![vec![vec![vec![String::from("Kohee") , String::from("Kiaff") , String::from("Vogi")]]]] ;
+    match vec.get(0){
+        Some(c_1) =>{
+            match c_1.get(0){
+                Some(c_2) => {
+                    match c_2.get(0){
+                        Some(c_3) =>  {
+                            for i in c_3.iter(){
+                                println!("Vec :{:?}" , i) ;
+                            }
+                        }
+                        None => {} ,
+                    }
+                }
+                None => {} ,
+            }
+        }
+        None =>{} ,
+    }
+}
 
+____________________________________________________________________________________________________________________________________________________________

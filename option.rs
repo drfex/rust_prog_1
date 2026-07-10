@@ -124,3 +124,96 @@ fn main(){
     AddInfo::print_info(&vec![info_1]) ; 
 }
 ___________________________________________________________________________________________________________________________________________
+fn main(){
+    let vec : Vec<Vec<Option<String>>> = vec![vec![Some(String::from("Kiaff")) ,Some(String::from("Kiaff"))]] ;
+    match vec.get(0){
+        Some(f_1) => {
+            match f_1.get(0){
+                Some(f_2) =>{
+                    match f_2{
+                        Some(v_1) =>{
+                            println!("name is :{:?}" , v_1) ;
+                        }
+                        None => {} ,
+                    }
+                }
+                None => {} ,
+            }
+        }
+        None => {} ,
+    }
+}
+______________________________________________________________________________________________________________________________________________
+fn main(){
+    let vec : Option<Option<Vec<Option<i32>>>> = Some(Some(vec![Some(10) , Some(20) , Some(20)])) ;
+    match vec{
+        Some(v_1) => {
+            match  v_1{
+                Some(v_2) => {
+                    match v_2.get(0){
+                        Some(vv_1) => {
+                            match vv_1{
+                                Some(name) =>{
+                                    println!("Number is :{:?}" , name) ;
+                                }
+                                None => {
+                                    eprintln!("There is no value !") ;
+                                }
+                            }
+                        }
+                        None => {
+                            eprintln!("There is no value !") ;
+                        }
+                    }
+                }
+                None => {
+                    eprintln!("There is no value !") ;
+                }
+            }
+        }
+        None => {
+            eprintln!("There is no value !") ;
+        }
+    }
+}
+_______________________________________________________________________________________________________________________________________________
+fn main(){
+    let vec : Vec<Vec<Vec<i32>>> = vec![vec![vec![10 , 20 , 30 , 40 , 50 , 60]]] ;
+    match vec.get(0){
+        Some(vec_1) =>{
+            match vec_1.get(0){
+                Some(vec_2) =>{
+                    match vec_2.get(0){
+                        Some(final_1) =>{
+                            println!("Final value :{:?}" ,  final_1) ;
+                        }
+                        None => {
+                            eprintln!("There is no value !") ;
+                        }
+                    }
+                }
+                None =>{} ,
+            }
+        }
+        None => {} ,
+    }
+}
+___________________________________________________________________________________________________________________________________________________
+fn main(){
+    let vec :Vec<Vec<Vec<i32>>> = vec![vec![vec![10 , 20 , 30 , 40 , 50 ,60]]] ;
+    match vec.get(0){
+        Some(v_1) => {
+            match v_1.get(0){
+                Some(vv_1) =>{
+                    for i in vv_1.iter(){
+                        println!("Vec :{:?}" , i) ; 
+                    }
+                }
+                None=> {} ,
+            }
+        }
+        None => {} , 
+    }
+}
+_____________________________________________________________________________________________________________________________________________
+

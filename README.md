@@ -1,1 +1,0 @@
-# rust_prog_1

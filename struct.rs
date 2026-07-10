@@ -203,3 +203,105 @@ fn main(){
     println!("Something -> :{:?}" , something_1.number) ;
 }
 __________________________________________________________________________________________________________________________________
+#[derive(Debug)]
+struct Info1{
+    name: Option<String> ,
+    index : Option<usize> ,
+}
+#[derive(Debug)]
+struct Info2{
+    name : Option<String> ,
+    index : Option<usize> ,
+}
+#[derive(Debug)]
+enum AddInfo{
+    Type1(Info1) ,
+    Type2(Info2) ,
+}
+impl AddInfo{
+    fn print_info(info : &Option<Option<Option<Option<AddInfo>>>>){
+        match info{
+            Some(first_1) => {
+                match first_1{
+                    Some(sec_1) =>{
+                        match sec_1{
+                            Some(v_1) =>  {
+                                match v_1{
+                                    Some(vv_1) =>{
+                                        match vv_1{
+                                            AddInfo::Type1(val_1) => {
+                                                match &val_1.name{
+                                                    Some(name_val) =>  {
+                                                        println!("Name is :{:?}" , name_val) ;
+                                                    }
+                                                    None => {
+                                                        eprintln!("There is no value !") ;
+                                                    }
+                                                }
+                                                match &val_1.index{
+                                                    Some(index_val) =>{
+                                                        println!("The index is :{:?}" , index_val) ;
+                                                    }
+                                                    None => {
+                                                        eprintln!("There is no value ~!") ;
+                                                    }
+                                                }
+                                            }
+                                            AddInfo::Type2(val_2)=> {
+                                                match &val_2.name{
+                                                    Some(name_val) =>{
+                                                        println!("The name is :{:?}" , name_val) ;
+                                                    }
+                                                    None => {
+                                                        eprintln!("There is no value !") ;
+                                                    }
+                                                }
+                                                match &val_2.index {
+                                                    Some(index_val) => {
+                                                        println!("The index value is :{:?}" , index_val) ;
+                                                    }
+                                                    None => {
+                                                        eprintln!("There is no value !") ;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    None => {
+                                        eprintln!("There is no value !") ;
+                                    }
+                                }
+                            }
+                            None => {
+                            eprintln!("There is no value !") ;
+                        }
+                    }
+                }
+                None =>{
+                    eprintln!("There is no value !")  ;
+                }
+              }
+          }
+          None => {
+              eprintln!("There is no vaklue !") ;
+          }
+       }
+   }
+}
+fn main(){
+    let info_1 : Option<Option<Option<AddInfo>>> = Some(Some(Some(
+        AddInfo::Type1(Info1{
+            name : Some(String::from("Juggy!")) ,
+            index: Some(12 as usize) ,
+        })
+    ))) ;
+    let info_2 : Option<Option<Option<AddInfo>>> = Some(Some(Some(
+        AddInfo::Type2(Info2{
+            name : Some(String::from("Kafi")) ,
+            index : Some(89 as usize) ,
+        })
+    )))  ;
+    AddInfo::print_info(&Some(info_1)) ;
+    AddInfo::print_info(&Some(info_2)) ;
+}
+_________________________________________________________________________________________________________________________________________________________
